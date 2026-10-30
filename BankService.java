@@ -187,7 +187,7 @@ public class BankService {
     }
 
 
-    // 8. DISPLAY TRANSACTION HISTORY
+    //Display transaction history
     public void displayTransactions(int accountNumber)
             throws AccountNotFoundException {
 
