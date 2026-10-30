@@ -1,10 +1,15 @@
 # 🏦 BankEase – Banking Management System
 
-**Name:** Yarnakula Lekhana  
-**Institute:** Codegnan  
-**Batch:** JFS-ONR-004  
+**Name:** Yarnakula Lekhana
+
+**Institute:** Codegnan
+
+**Batch:** JFS-ONR-004 
+
 **Domain:** Java Full Stack Development
+
 **Project Type:** Core Java Console-Based Mini Project 
+
 **Mentor:** Sairam Sahini
 
 # 📝 About the Project
