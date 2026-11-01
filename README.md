@@ -1,232 +1,336 @@
-# 🏦 BankEase – Banking Management System
+# 🏦 BankEase -- Banking Management System
 
-**Name:** Yarnakula Lekhana
-
-**Institute:** Codegnan
-
-**Batch:** JFS-ONR-004 
-
-**Domain:** Java Full Stack Development
-
-**Project Type:** Core Java Console-Based Mini Project 
-
+**Name:** Yarnakula Lekhana\
+**Institute:** Codegnan\
+**Batch:** JFS-ONR-004\
+**Domain:** Java Full Stack Development\
+**Project Type:** Core Java Console-Based Mini Project\
 **Mentor:** Sairam Sahini
 
-# 📝 About the Project
+------------------------------------------------------------------------
 
-## 📌 Overview
+## 📝 About the Project
 
-**BankEase – Banking Management System** is a console-based application developed using Core Java to manage basic banking operations.
+### 📌 Overview
 
-The application allows users to create bank accounts, display account details, search for accounts, deposit money, withdraw money, check account balances, view transaction history, and delete accounts.
+**BankEase -- Banking Management System** is a menu-driven,
+console-based application developed using Core Java to demonstrate basic
+banking operations.
 
-This project demonstrates important Core Java concepts such as Object-Oriented Programming (OOP), Collection Framework, exception handling, user-defined checked exceptions, loops, switch statements, and console input using the `Scanner` class.
+The application allows users to create bank accounts, display and search
+account details, deposit money, withdraw money, check account balances,
+view transaction history, and delete accounts.
 
----
+The project demonstrates Object-Oriented Programming (OOP), the
+Collection Framework, exception handling, user-defined checked
+exceptions, loops, switch statements, console input with `Scanner`, and
+Java file I/O through object serialization.
+
+Account and transaction data are stored in Java collections and
+serialized to `bankdata.dat`. When the application starts again, the
+saved records can be loaded from this file.
 
 ## 🎯 Objectives
 
-- Develop a menu-driven banking application using Core Java.
-- Create and manage bank accounts.
-- Store account information using the Collection Framework.
-- Perform deposit and withdrawal operations.
-- Validate banking operations using exception handling.
-- Implement user-defined checked exceptions.
-- Maintain transaction history during program execution.
-- Understand object-oriented programming concepts through a practical project.
-
----
+-   Develop a menu-driven banking application using Core Java.
+-   Create and manage bank accounts.
+-   Store account information using the Collection Framework.
+-   Perform deposit and withdrawal operations with validation.
+-   Handle banking errors using exception handling.
+-   Implement user-defined checked exceptions.
+-   Maintain transaction history.
+-   Save and reload account and transaction data using Java object
+    streams.
+-   Apply OOP concepts in a practical mini-project.
 
 ## 📊 Project Structure
 
-The project is organized into the following Java classes under the `com.bankease` package:
+The Java source files are organized under the `com.bankease` package.
 
-```text
+``` text
 BankEase
- |
- +-- src
-      |
-      +-- com.bankease
-             |
-             +-- BankEaseApplication.java
-             |
-             +-- BankAccount.java
-             |
-             +-- BankService.java
-             |
-             +-- Transaction.java
-             |
-             +-- InvalidAmountException.java
-             |
-             +-- InsufficientBalanceException.java
-             |
-             +-- AccountNotFoundException.java
-             |
-             +-- DuplicateAccountException.java
+└── src
+    └── com.bankease
+        ├── BankEaseApplication.java
+        ├── BankAccount.java
+        ├── BankService.java
+        ├── Transaction.java
+        ├── InvalidAmountException.java
+        ├── InsufficientBalanceException.java
+        ├── AccountNotFoundException.java
+        └── DuplicateAccountException.java
 ```
 
 ### Class Description
 
-| Class | Description |
-|---|---|
-| `BankEaseApplication.java` | Main class that handles the menu and user input. |
-| `BankAccount.java` | Stores account number, account holder name, and balance. |
-| `BankService.java` | Handles banking operations and collection management. |
-| `Transaction.java` | Stores transaction details. |
-| `InvalidAmountException.java` | Handles invalid deposit or withdrawal amounts. |
-| `InsufficientBalanceException.java` | Handles withdrawals exceeding the available balance. |
-| `AccountNotFoundException.java` | Handles requests for accounts that do not exist. |
-| `DuplicateAccountException.java` | Handles duplicate account numbers. |
+  -------------------------------------------------------------------------
+  Class                                 Description
+  ------------------------------------- -----------------------------------
+  `BankEaseApplication.java`            Main class that handles the console
+                                        menu, user input, and exception
+                                        handling.
 
----
+  `BankAccount.java`                    Stores account number, account
+                                        holder name, and balance.
+
+  `BankService.java`                    Manages banking operations,
+                                        collections, and saving/loading
+                                        data.
+
+  `Transaction.java`                    Stores transaction details such as
+                                        account number, transaction type,
+                                        amount, and date-time.
+
+  `InvalidAmountException.java`         Handles invalid deposit or
+                                        withdrawal amounts.
+
+  `InsufficientBalanceException.java`   Handles withdrawals that exceed the
+                                        available balance.
+
+  `AccountNotFoundException.java`       Handles requests for accounts that
+                                        do not exist.
+
+  `DuplicateAccountException.java`      Handles duplicate account numbers.
+  -------------------------------------------------------------------------
 
 ## 🛠️ Tools & Technologies Used
 
-- **Java** – Application development.
-- **Core Java** – Programming concepts and application logic.
-- **Eclipse IDE** – Writing and executing Java code.
-- **Scanner Class** – Reading user input from the console.
-- **Collection Framework** – Managing account and transaction data.
-- **HashMap** – Storing bank accounts using account numbers as keys.
-- **ArrayList** – Storing transaction records.
-- **Exception Handling** – Handling runtime and banking-related errors.
-- **User-Defined Checked Exceptions** – Handling specific banking errors.
-
----
+-   **Java / Core Java** -- Application development and program logic.
+-   **Eclipse IDE** -- Writing and running Java code.
+-   **Scanner** -- Reading user input from the console.
+-   **Collection Framework** -- Managing account and transaction data.
+-   **HashMap** -- Storing bank accounts using account numbers as keys.
+-   **ArrayList** -- Storing transaction records.
+-   **Exception Handling** -- Handling errors during banking operations.
+-   **User-Defined Checked Exceptions** -- Representing specific banking
+    errors.
+-   **Java I/O and Serialization** -- Saving and restoring data.
+-   **`ObjectOutputStream`** -- Writing serialized objects to a file.
+-   **`ObjectInputStream`** -- Reading serialized objects from a file.
+-   **`bankdata.dat`** -- Runtime data file used to persist account and
+    transaction records.
 
 ## 🧪 Methodology
 
 ### 1. Account Creation
 
-- Accept account number, account holder name, and opening balance.
-- Create a new bank account.
-- Check whether the account number already exists.
-- Prevent duplicate account creation.
+-   Accept the account number, account holder name, and opening balance.
+-   Check whether the account number already exists.
+-   Prevent duplicate account creation.
+-   Store the new account in the account collection.
 
 ### 2. Account Management
 
-- Display all available bank accounts.
-- Search for an account using its account number.
-- Check the current account balance.
-- Delete an existing account.
+-   Display all available bank accounts.
+-   Search for an account using its account number.
+-   Check the current account balance.
+-   Delete an existing account.
 
 ### 3. Deposit Money
 
-- Accept an account number and deposit amount.
-- Validate the entered amount.
-- Update the account balance.
-- Record the deposit in transaction history.
+-   Accept an account number and deposit amount.
+-   Validate that the amount is positive.
+-   Update the account balance.
+-   Add the deposit to transaction history.
 
 ### 4. Withdraw Money
 
-- Accept an account number and withdrawal amount.
-- Validate the withdrawal amount.
-- Check the available account balance.
-- Update the balance if sufficient funds are available.
-- Record the withdrawal in transaction history.
+-   Accept an account number and withdrawal amount.
+-   Validate that the amount is positive.
+-   Check whether the account has sufficient funds.
+-   Update the balance if the withdrawal is valid.
+-   Add the withdrawal to transaction history.
 
 ### 5. Transaction History
 
-- Store deposit and withdrawal records.
-- Display transaction details for an account.
-- Maintain transaction records using `ArrayList`.
+-   Store deposit and withdrawal records in an `ArrayList`.
+-   Display transaction details for an account.
+-   Keep transaction records available to the application and save them
+    with the other data.
 
 ### 6. Exception Handling
 
-The application uses user-defined checked exceptions to handle banking-related errors:
+The application uses user-defined checked exceptions to report
+banking-related errors:
 
-- `InvalidAmountException`
-- `InsufficientBalanceException`
-- `AccountNotFoundException`
-- `DuplicateAccountException`
+-   `InvalidAmountException`
+-   `InsufficientBalanceException`
+-   `AccountNotFoundException`
+-   `DuplicateAccountException`
 
----
+### 7. File Handling and Data Persistence
+
+-   The `BankAccount` and `Transaction` model classes implement
+    `Serializable`.
+-   `ObjectOutputStream` writes the account `HashMap` and transaction
+    `ArrayList` to `bankdata.dat`.
+-   `ObjectInputStream` reads the saved collections when the application
+    starts.
+-   This allows account records and transaction history to be restored
+    between runs, provided the data file remains available.
 
 ## 📚 Core Java Concepts Implemented
 
-| Concept | Usage |
-|---|---|
-| Classes and Objects | Represent bank accounts and transactions. |
-| Encapsulation | Organize account data and access methods. |
-| Constructors | Initialize account and transaction objects. |
-| HashMap | Store accounts using account numbers. |
-| ArrayList | Maintain transaction records. |
-| Scanner | Accept input from users. |
-| Switch Statement | Handle menu selections. |
-| Loops | Repeat the menu and display records. |
-| Try-Catch | Handle exceptions. |
-| Custom Exceptions | Handle banking-specific errors. |
+  -----------------------------------------------------------------------
+  Concept                             Usage
+  ----------------------------------- -----------------------------------
+  Classes and Objects                 Represent bank accounts,
+                                      transactions, and banking services.
 
----
+  Encapsulation                       Organize account data and expose
+                                      access methods.
 
-## 📈 Results & Analysis
+  Constructors                        Initialize account and transaction
+                                      objects.
 
-The BankEase application demonstrates how Core Java can be used to develop a simple banking management system.
+  `HashMap`                           Store accounts using account
+                                      numbers as keys.
 
-The application successfully demonstrates:
+  `ArrayList`                         Maintain transaction records in
+                                      sequence.
 
-- Creating and managing bank accounts.
-- Searching and displaying account details.
-- Depositing and withdrawing money.
-- Validating account numbers and transaction amounts.
-- Handling insufficient balance and other banking errors.
-- Maintaining transaction history during program execution.
+  `Scanner`                           Accept input from the user.
 
-The project provides practical experience with Java classes, objects, collections, and exception handling.
+  Switch Statement                    Handle menu selections.
 
----
+  Loops                               Repeat the menu and display
+                                      records.
 
-## ✅ Deliverables
+  Try-Catch                           Handle exceptions.
 
-- Java source files organized under the `com.bankease` package.
-- Account creation and management functionality.
-- Deposit and withdrawal operations.
-- Transaction history management.
-- Collection Framework implementation using `HashMap` and `ArrayList`.
-- User-defined checked exception classes.
-- Console-based menu-driven application.
-- Project presentation.
+  Custom Checked Exceptions           Handle banking-specific errors.
 
----
+  `Serializable`                      Allow model objects to be
+                                      serialized.
 
-## 🙌 Acknowledgments
+  `ObjectOutputStream`                Save collections to a file.
 
-This project was developed as a Core Java mini-project to practice object-oriented programming, collection handling, exception handling, and console-based application development.
+  `ObjectInputStream`                 Load saved collections from a file.
+  -----------------------------------------------------------------------
 
-Special thanks to **Codegnan** and the mentors for their guidance and support throughout the learning process.
-
----
-
-## 🚀 How to Run
-
-1. Install Java JDK (Java 17 or a compatible version).
-2. Install or open Eclipse IDE.
-3. Create or import the `BankEase` Java project.
-4. Ensure all Java files are placed inside the `com.bankease` package.
-5. Open `BankEaseApplication.java`.
-6. Run the application as a **Java Application**.
-7. Use the console menu to perform banking operations.
-
----
-
-## 📌 Notes
-
-- This is a console-based Java application.
-- Account and transaction data are stored in collections.
-- Data is maintained in memory only while the application is running.
-- Account and transaction records are not permanently stored in a database.
-- The project is intended for learning Core Java concepts and is not a production banking application.
-
----
-
-## 📤 Output
+## 📋 Console Menu
 
 The application displays a menu in the Eclipse console:
 
-<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/268ccc23-ae6d-4b28-b79c-4bf40b6301f9" />
+``` text
+================================
+       WELCOME TO BANKEASE
+================================
+1. Create Account
+2. Display All Accounts
+3. Search Account
+4. Deposit Money
+5. Withdraw Money
+6. Check Balance
+7. Transaction History
+8. Delete Account
+9. Exit
 
+Enter your choice:
+```
 
----
+## 📈 Sample Transaction Flow
 
-**#Java #CoreJava #BankEase #BankingManagementSystem #JavaProject #EclipseIDE #OOP #CollectionFramework #ExceptionHandling**
+For example, an account can be created with an opening balance of
+₹5,000.
 
+  Operation           Amount   Balance
+  ----------------- -------- ---------
+  Opening balance        ---    ₹5,000
+  Deposit             ₹2,000    ₹7,000
+  Withdraw            ₹1,000    ₹6,000
+
+The transaction history should contain the deposit of ₹2,000 and
+withdrawal of ₹1,000.
+
+## 🧪 Testing & Expected Results
+
+  -----------------------------------------------------------------------
+  Test Case                           Expected Result
+  ----------------------------------- -----------------------------------
+  Create an account with a new        Account is created successfully.
+  account number                      
+
+  Create an account with a duplicate  `DuplicateAccountException` is
+  account number                      handled.
+
+  Deposit a positive amount           Balance increases and a transaction
+                                      is recorded.
+
+  Deposit zero or a negative amount   `InvalidAmountException` is
+                                      handled.
+
+  Withdraw more than the available    `InsufficientBalanceException` is
+  balance                             handled.
+
+  Search for an unknown account       `AccountNotFoundException` is
+                                      handled.
+
+  Restart the application with        Saved accounts and transaction
+  `bankdata.dat` available            history are loaded.
+  -----------------------------------------------------------------------
+
+## 📦 Deliverables
+
+-   Java source files organized under the `com.bankease` package.
+-   Account creation and management functionality.
+-   Deposit and withdrawal operations.
+-   Transaction history management.
+-   Collection Framework implementation using `HashMap` and `ArrayList`.
+-   User-defined checked exception classes.
+-   File persistence using Java object serialization.
+-   Console-based, menu-driven application.
+-   Project presentation.
+
+## 🙌 Acknowledgments
+
+This project was developed as a Core Java mini-project to practise
+object-oriented programming, collection handling, exception handling,
+console-based application development, and Java file I/O.
+
+Special thanks to **Codegnan** and **Mentor Sairam Sahini** for their
+guidance and support throughout the learning process.
+
+## 🚀 How to Run
+
+1.  Install the Java JDK (Java 17 or a compatible version).
+2.  Install or open Eclipse IDE.
+3.  Create or import the BankEase Java project.
+4.  Ensure all Java source files are placed in the `com.bankease`
+    package.
+5.  Open `BankEaseApplication.java`.
+6.  Run it as a **Java Application**.
+7.  Use the console menu to perform banking operations.
+
+The `bankdata.dat` file is created in the application's working
+directory when the application saves its data. Keep this file if you
+want to retain the saved account and transaction records between runs.
+
+## 📌 Notes & Limitations
+
+-   This is a console-based learning project, not a production banking
+    application.
+-   Account data is managed using a `HashMap`, and transaction history
+    is managed using an `ArrayList`.
+-   The collections are serialized to `bankdata.dat` so saved data can
+    be loaded again when the application starts.
+-   The application does not use a database.
+-   For a real banking system, additional security, authentication,
+    robust data storage, backup, and recovery mechanisms would be
+    required.
+
+## 🚀 Future Enhancements
+
+-   Use `BigDecimal` for more precise monetary calculations.
+-   Add account authentication and authorization.
+-   Improve backup and recovery.
+-   Strengthen input validation and reporting.
+-   Integrate a database for larger-scale data management.
+
+------------------------------------------------------------------------
+
+## 🏷️ Tags
+
+`#Java` `#CoreJava` `#BankEase` `#BankingManagementSystem`
+`#JavaProject` `#EclipseIDE` `#OOP` `#CollectionFramework`
+`#ExceptionHandling` `#JavaIO` `#Serialization`
