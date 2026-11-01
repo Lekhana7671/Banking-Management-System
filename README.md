@@ -212,22 +212,8 @@ banking-related errors:
 
 The application displays a menu in the Eclipse console:
 
-``` text
-================================
-       WELCOME TO BANKEASE
-================================
-1. Create Account
-2. Display All Accounts
-3. Search Account
-4. Deposit Money
-5. Withdraw Money
-6. Check Balance
-7. Transaction History
-8. Delete Account
-9. Exit
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/220515b0-21cd-4125-a07b-ee0d6c2e76b5" />
 
-Enter your choice:
-```
 
 ## 📈 Sample Transaction Flow
 
